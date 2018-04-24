@@ -19,6 +19,7 @@ import com.bumptech.glide.request.transition.Transition;
 import com.simple.heinika.javagankio.R;
 import com.simple.heinika.javagankio.entity.GirlBean;
 import com.simple.heinika.javagankio.utils.DisplayUtils;
+import com.simple.heinika.javagankio.utils.GlideApp;
 
 import java.util.List;
 
@@ -68,7 +69,7 @@ public class GirlsAdapter extends RecyclerView.Adapter<GirlsAdapter.ViewHolder> 
             layoutParams.height = (int) (layoutParams.width/ girlBean.getScale());
         }
         holder.imageView.setBackgroundColor(Color.BLUE);
-        Glide.with(mContext)
+        GlideApp.with(mContext)
                 .load(girlBeans.get(position).getUrl())
                 .transition(new DrawableTransitionOptions().crossFade())
                 .into(holder.imageView);
