@@ -22,7 +22,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
     private StaggeredGridLayoutManager layoutManager;
     private GirlsAdapter girlsAdapter;
     private List<GirlBean> girlBeans = new ArrayList<>();
@@ -39,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        recyclerView = findViewById(R.id.recyclerView_girls);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView_girls);
         layoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         layoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
         recyclerView.setLayoutManager(layoutManager);
@@ -78,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<BaseEntity<GirlBean>> call, Throwable t) {
+            public void onFailure(@NonNull Call<BaseEntity<GirlBean>> call, @NonNull Throwable t) {
 
             }
         });
