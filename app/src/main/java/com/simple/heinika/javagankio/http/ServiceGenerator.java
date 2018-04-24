@@ -20,7 +20,7 @@ public class ServiceGenerator {
     private GankIOService gankIOService;
     private static ServiceGenerator serviceGenerator;
 
-    private ServiceGenerator(){};
+    private ServiceGenerator(){}
 
     public static ServiceGenerator getInstance(){
         if(serviceGenerator == null){
