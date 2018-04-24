@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
                     int[] lastPositions = new int[2];
                     layoutManager.findLastVisibleItemPositions(lastPositions);
-                    if(lastPositions[0]>girlBeans.size()-2){
+                    if(lastPositions[0]>girlBeans.size()-3){
                         page++;
                         addGirlsToRecyclerView(page);
                     }

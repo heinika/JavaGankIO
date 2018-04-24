@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.simple.heinika.javagankio.R;
@@ -69,6 +70,7 @@ public class GirlsAdapter extends RecyclerView.Adapter<GirlsAdapter.ViewHolder> 
         holder.imageView.setBackgroundColor(Color.BLUE);
         Glide.with(mContext)
                 .load(girlBeans.get(position).getUrl())
+                .transition(new DrawableTransitionOptions().crossFade())
                 .into(holder.imageView);
     }
 
