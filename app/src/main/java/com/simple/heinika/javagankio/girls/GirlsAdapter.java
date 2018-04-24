@@ -31,14 +31,18 @@ public class GirlsAdapter extends RecyclerView.Adapter<GirlsAdapter.ViewHolder> 
 
     private void setImageScale() {
         for (final GirlBean girlBean : girlBeans) {
-            Glide.with(mContext).load(girlBean.getUrl()).into(new SimpleTarget<Drawable>() {
-                @Override
-                public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
-                    float scale = resource.getIntrinsicWidth() / (float) resource.getIntrinsicHeight();
-                    girlBean.setScale(scale);
-                    notifyDataSetChanged();
-                }
-            });
+            if(girlBean.getScale() == 0){
+                Glide.with(mContext).load(girlBean.getUrl()).into(new SimpleTarget<Drawable>() {
+                    @Override
+                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                        float scale = resource.getIntrinsicWidth() / (float) resource.getIntrinsicHeight();
+                        girlBean.setScale(scale);
+                        notifyDataSetChanged();
+                    }
+                });
+            }else {
+                notifyDataSetChanged();
+            }
         }
     }
 
